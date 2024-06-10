@@ -1,0 +1,15 @@
+Image path: /home/jphong/rgrg/src/dataset/mimic-cxr-jpg/s54385701/3ea0cd5d-b6ef4a9d-bd053deb-a611067c-284e4144.jpg
+Generated report: No acute cardiopulmonary process. There is no focal consolidation, effusion, or pneumothorax. The lungs are clear. The cardiomediastinal and hilar contours are normal. There are no acute osseous abnormalities. The aorta is tortuous.
+
+==============================
+
+Image path: /home/jphong/rgrg/src/dataset/mimic-cxr-jpg/s56450978/6b53b66e-2871db03-cfbc3045-4e17bd5b-62902490.jpg
+Generated report: The lungs are clear. No acute cardiopulmonary abnormality. There is no pleural effusion or pneumothorax.
+
+==============================
+
+Image path: /home/jphong/rgrg/src/dataset/mimic-cxr-jpg/s57532252/60748012-52f2b260-2847eba6-93a13493-3f1196de.jpg
+Generated report: The lungs are clear without focal consolidation, effusion, or pneumothorax. No acute cardiopulmonary process. There is no pleural effusion or pneumothorax. The lungs are clear. The cardiomediastinal silhouette and hilar contours are normal. There are no acute osseous abnormalities.
+
+==============================
+

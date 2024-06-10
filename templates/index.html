@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Data Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Data Visualization</h1>
+        <!-- Patient ID Selection -->
+        <div id="controls" class="my-3">
+            <label for="patient-select">Select Patient ID:</label>
+            <select id="patient-select" class="form-select">
+                <option value="">--Select Patient--</option>
+                <!-- Options will be dynamically populated -->
+            </select>
+
+        </div>
+
+        <!-- Visualization Tabs -->
+        <ul class="nav nav-tabs" id="visualizationTabs" role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-lin active" id="demographics-tab" data-bs-toggle="tab" data-bs-target="#demographics-pane" type="button" role="tab" aria-controls="demographics-pane" aria-selected="true">Demographics</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pharmacy-tab" data-bs-toggle="tab" data-bs-target="#pharmacy-pane" type="button" role="tab" aria-controls="pharmacy-pane" aria-selected="false">Pharmacy Data</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cxr-tab" data-bs-toggle="tab" data-bs-target="#cxr-pane" type="button" role="tab" aria-controls="cxr-pane" aria-selected="false">CXR Visualization</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ecg-tab" data-bs-toggle="tab" data-bs-target="#ecg-pane" type="button" role="tab" aria-controls="ecg-pane" aria-selected="false">ECG Visualization</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="visualizationTabsContent">
+            <div class="tab-pane fade show active" id="demographics-pane" role="tabpanel" aria-labelledby="demographics-tab">
+                <div id="demographics-container">
+                    <button id="load-demographics-data" class="btn btn-primary mt-3">Load Demographics Data</button>
+                    <div id="demographics-content" class="mt-3">
+                        <!-- Demographic data will be displayed here -->
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pharmacy-pane" role="tabpanel" aria-labelledby="pharmacy-tab">
+                <div id="pharmacy" class="p-3">
+                    <button id="load-pharmacy-data" class="btn btn-primary mt-3">Load Pharmacy Data</button>
+                    <div id="pharmacy-table-container" class="mt-3">
+                        <table class="table table-striped" id="pharmacy-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject ID</th>
+                                    <th>HADM ID</th>
+                                    <th>Pharmacy ID</th>
+                                    <th>Order Provider ID</th>
+                                    <th>Drug Type</th>
+                                    <th>Drug</th>
+                                    <th>Prod Strength</th>
+                                    <th>Form Unit Disp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- CXR Tab Pane -->
+            <div class="tab-pane fade" id="cxr-pane" role="tabpanel" aria-labelledby="cxr-tab">
+                <div id="cxr" class="p-3">
+                    <label for="cxr-select" class="mt-2">Select Record Name:</label>
+                    <select id="cxr-select" class="form-select">
+                        <option value="">--Select Record--</option>
+                        <!-- Options will be dynamically populated -->
+                    </select>
+                    <button id="load-cxr-data" class="btn btn-primary mt-3">Load Data</button>
+                    <div id="image-container" class="mt-3">
+                        <img id="current-image" src="" alt="CXR Image">
+                        <canvas id="bounding-box-canvas"></canvas>
+                        <div id="image-index">Images: 1 / 0</div>
+                    </div>
+                    <button id="view-change-button" class="btn btn-primary mt-3">View Change</button>
+                    <div id="reports-container" class="mt-4">
+                        <h3>Reports</h3>
+                        <button id="auto-annotate-button" class="btn btn-warning">Automatic Annotation</button>
+                        <p id="report-content"></p>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ECG Tab Pane -->
+            <div class="tab-pane fade" id="ecg-pane" role="tabpanel" aria-labelledby="ecg-tab">
+                <div id="ecg-visualization" class="p-3">
+                    <label for="record-select" class="mt-2">Select Record Name:</label>
+                    <select id="record-select" class="form-select">
+                        <option value="">--Select Record--</option>
+                        <!-- Options will be dynamically populated -->
+                    </select>
+                    <button id="load-data" class="btn btn-primary mt-3">Load Data</button>
+                    <div id="lead-toggle" class="mb-2"></div>
+                    <div id="chart"></div>
+                    <div class="zoom-buttons mt-3">
+                        <button id="zoom-in" class="btn btn-success">Zoom In</button>
+                        <button id="zoom-out" class="btn btn-success">Zoom Out</button>
+                        <button id="reset-zoom" class="btn btn-secondary">Reset Zoom</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include custom JavaScript file -->
+    <script src="static/main.js"></script>
+</body>
+</html>
